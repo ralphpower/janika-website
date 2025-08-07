@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tragedy in Redwood Valley - Janika Van Tonder</title>
     <style>
+        /* Import Mystery/Gothic Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&family=Eater&family=Special+Elite&family=Cinzel:wght@400;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -65,49 +68,137 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23134e4a" width="1200" height="800"/><path fill="%23065f46" d="M0 400c200-100 400-100 600 0s400 100 600 0v400H0z"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0.1 0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 1 0"/></filter></defs><rect width="1200" height="800" fill="%23001122"/><rect width="1200" height="800" fill="%23000" opacity="0.3" filter="url(%23noise)"/><g fill="%23001a33" opacity="0.7"><path d="M0,300 Q300,200 600,300 T1200,300 L1200,800 L0,800 Z"/><path d="M0,400 Q200,350 400,400 T800,400 Q1000,350 1200,400 L1200,800 L0,800 Z"/></g><g fill="%23000" opacity="0.5"><circle cx="100" cy="100" r="80"/><circle cx="300" cy="150" r="60"/><circle cx="500" cy="80" r="100"/><circle cx="800" cy="120" r="70"/><circle cx="1000" cy="90" r="90"/></g><rect x="200" y="600" width="800" height="2" fill="%23ffff00" opacity="0.8"/><rect x="250" y="550" width="700" height="1" fill="%23ffff00" opacity="0.6"/></svg>'),
+                        radial-gradient(ellipse at top, #0f172a, #000000);
+            background-size: cover, cover, cover;
+            background-position: center, center, center;
+            background-blend-mode: multiply, normal, normal;
             height: 100vh;
             display: flex;
             align-items: center;
             color: white;
             text-align: center;
             margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 0%, rgba(0, 20, 40, 0.3) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-family: 'Cinzel', 'Georgia', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
+            text-shadow: 
+                3px 3px 6px rgba(0,0,0,0.9),
+                0 0 20px rgba(255, 255, 255, 0.1),
+                0 0 40px rgba(139, 69, 19, 0.3);
+            letter-spacing: 3px;
+            line-height: 1.1;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { 
+                text-shadow: 
+                    3px 3px 6px rgba(0,0,0,0.9),
+                    0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            100% { 
+                text-shadow: 
+                    3px 3px 8px rgba(0,0,0,0.9),
+                    0 0 30px rgba(255, 255, 255, 0.2),
+                    0 0 50px rgba(139, 69, 19, 0.4);
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1rem;
+            color: #ffff99;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            line-height: 1.6;
+            color: #e0e0e0;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 15px 30px;
-            background: #e74c3c;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #8b0000, #ff0000, #8b0000);
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            font-family: 'Cinzel', serif;
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 4px 15px rgba(139, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            border: 2px solid transparent;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
 
         .cta-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+            background: linear-gradient(45deg, #a00000, #ff2020, #a00000);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 25px rgba(139, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         /* Book Section */
@@ -188,6 +279,80 @@
             font-size: 1.1rem;
             color: #555;
             margin-bottom: 1.5rem;
+        }
+
+        /* Book Details Section */
+        .book-details-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        }
+
+        .book-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid #e74c3c;
+        }
+
+        .detail-card h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .release-date {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 0.5rem 0;
+        }
+
+        /* Characters Section */
+        .characters-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .character-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .character-card h3 {
+            color: #f39c12;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-age {
+            color: #bdc3c7;
+            font-style: italic;
+            margin-bottom: 1rem;
         }
 
         /* Newsletter Section */
@@ -321,6 +486,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-subtitle">Some mysteries are bigger than murder</div>
                 <h1>The Tragedy in Redwood Valley</h1>
                 <p>In a town where everyone has secrets, Detective Sarah Anderson must solve her first murder case—before the truth destroys everything she believes in.</p>
                 <a href="#newsletter" class="cta-button">Get Early Access</a>
@@ -347,6 +513,69 @@
                     <p>Step into the shadows of Redwood Valley, where every page pulls you deeper into a chilling mystery that will keep you guessing until the very end.</p>
                     
                     <a href="#newsletter" class="cta-button">Be the First to Read</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-details-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #2c3e50; font-size: 2.5rem; margin-bottom: 1rem;">Book Details</h2>
+            <div class="book-details-grid">
+                <div class="detail-card">
+                    <h3>📅 Release Date</h3>
+                    <div class="release-date">October 1st, 2025</div>
+                    <p>Available for pre-order now!</p>
+                </div>
+                <div class="detail-card">
+                    <h3>🔍 Genre</h3>
+                    <p><strong>Mystery • Detective Fiction</strong></p>
+                    <p>Small-town secrets meet big-city investigation skills</p>
+                </div>
+                <div class="detail-card">
+                    <h3>📍 Setting</h3>
+                    <p><strong>Redwood Valley</strong></p>
+                    <p>A tight-knit community where everyone knows everyone... or do they?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="characters-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Meet the Characters</h2>
+            <p style="text-align: center; font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Step into Redwood Valley and discover the people whose lives will be forever changed by one tragic night.</p>
+            
+            <div class="characters-grid">
+                <div class="character-card">
+                    <h3>Detective Sarah Anderson</h3>
+                    <div class="character-age">Age 23 • Ambitious • Determined</div>
+                    <p>Fresh from the police academy with a keen eye for details and an unshakeable work ethic. Sarah dreams of following in her detective parents' footsteps, but when veteran Detective Ryan gets the lead role she wanted, she must prove herself worthy of the badge.</p>
+                    <p><strong>Her greatest strength:</strong> Never gives up on finding the truth</p>
+                    <p><strong>Her weakness:</strong> Too hard on herself when things go wrong</p>
+                </div>
+                
+                <div class="character-card">
+                    <h3>Detective Ryan</h3>
+                    <div class="character-age">Age 29 • Experienced • Haunted by the Past</div>
+                    <p>A charming detective from the city, Ryan came to Redwood Valley to start over after a case went terribly wrong. His experience and tenacity make him the perfect partner for Sarah... if she can learn to trust him.</p>
+                    <p><strong>His strength:</strong> Knows when to push and when to step back</p>
+                    <p><strong>His struggle:</strong> Sometimes drowns his demons in a bottle</p>
+                </div>
+                
+                <div class="character-card">
+                    <h3>Mrs. Brown (The Victim)</h3>
+                    <div class="character-age">Beloved Teacher • Community Heart</div>
+                    <p>Everyone in Redwood Valley loved Mrs. Brown. She was the teacher who remembered every student's name, the neighbor who brought soup when you were sick. Her brutal murder in the woods shocks the entire community.</p>
+                    <p><strong>The mystery:</strong> Who could want to hurt someone so beloved?</p>
+                    <p><strong>Sarah's connection:</strong> Mrs. Brown helped raise her - this case is personal</p>
+                </div>
+                
+                <div class="character-card">
+                    <h3>The Killer</h3>
+                    <div class="character-age">Hidden in Plain Sight</div>
+                    <p>In a town where everyone knows everyone, the murderer has been hiding among them all along. Respected, trusted, even beloved by some... but carrying a deadly secret that Mrs. Brown accidentally discovered.</p>
+                    <p><strong>The twist:</strong> Sometimes the most dangerous people are the ones you'd never suspect</p>
                 </div>
             </div>
         </div>
