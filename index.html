@@ -362,7 +362,7 @@
                 <li><a href="#book">The Book</a></li>
                 <li><a href="#author">About Janika</a></li>
                 <li><a href="#purchase">Pre-Order</a></li>
-                <li><a href="#newsletter">Updates</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -444,15 +444,14 @@
         </div>
     </section>
 
-    <section id="newsletter" class="newsletter-section">
+    <section id="contact" class="newsletter-section">
         <div class="container">
-            <h2>Stay Connected</h2>
-            <p>Get exclusive updates, behind-the-scenes content, and early access to Detective Sarah Anderson's investigations.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Join the Mystery</button>
-            </form>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">No spam, just exciting updates about the book and Janika's writing journey.</p>
+            <h2>Get in Touch</h2>
+            <p>Questions about the book? Interested in book events or interviews?</p>
+            <div style="margin: 2rem 0;">
+                <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 1rem;">📧 janikavtonder8@gmail.com</p>
+                <p style="font-size: 1rem; opacity: 0.9;">Available for book clubs, literary events, and media interviews</p>
+            </div>
         </div>
     </section>
 
@@ -460,7 +459,7 @@
         <div class="container">
             <p>&copy; 2025 Janika Van Tonder. All rights reserved.</p>
             <p style="margin-top: 10px; opacity: 0.7;">
-                Contact for book events and interviews
+                Email: janikavtonder8@gmail.com • Available for book events and interviews
             </p>
         </div>
     </footer>
@@ -478,26 +477,6 @@
                     });
                 }
             });
-        });
-
-        // Newsletter form handling
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            const button = this.querySelector('button');
-            
-            if (email) {
-                // Success feedback
-                button.textContent = 'Welcome to the Mystery!';
-                button.style.background = '#27ae60';
-                this.querySelector('input').value = '';
-                
-                // Reset after 3 seconds
-                setTimeout(() => {
-                    button.textContent = 'Join the Mystery';
-                    button.style.background = '#e74c3c';
-                }, 3000);
-            }
         });
 
         // Header scroll effect
